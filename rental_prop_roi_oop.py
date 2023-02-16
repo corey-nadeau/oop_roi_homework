@@ -28,10 +28,11 @@ class Investment():
     def summInv(self):
         return self.down_payment + self.closing_costs + self.rehab_budget + self.misc
 
-sumIncome = Income(2000,0).summInc()
-sumExpenses = Expenses(150,100,0,0,100,100,100,200,860).summExp()
-sumInvestment = Investment(40000,3000,7000,0).summInv()
+sumIncome = Income(input("Income from rent: "),input("Other income: ")).summInc()
+sumExpenses = Expenses(input("Enter monthly taxes: "),input("Enter monthly insurance: "),input("Enter monthly utilities: "),input("Enter monthly HOA fee: "),
+    input("Enter monthly vacancy savings: "),input("Enter monthly repair budget: "),input("Enter monthly capex: "),input("Enter monthly prop mgmt fees: "),input("Enter mortgage: ")).summExp()
+sumInvestment = Investment(input("Enter your total down payment: "),input("Enter your closing cost: "),input("Enter your rehab budget: "),input("Enter any other upfront costs: ")).summInv()
 cashflow = int(sumIncome) - int(sumExpenses)
-roi = cashflow * 12 / sumInvestment *100
+roi = int(cashflow) * 12 / int(sumInvestment) *100
 
-print(roi)
+print(f"Your total return on investement is: ", int(roi))
